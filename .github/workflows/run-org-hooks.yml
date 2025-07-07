@@ -29,6 +29,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      # Checks file directory
+      - name: Check file directory
+        run: |
+          ls -la
+
       # Runs pre-commit hook
       - name: Run org-wide pre-commit hook
         run: |
