@@ -34,6 +34,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pre-commit
 
+      # Checks file directory
+      - name: Check directory
+        run: |
+          ls -la
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
         with:
