@@ -28,4 +28,4 @@ jobs:
 
       - name: Test output
         run: |
-          echo "hellothere" >> $GITHUB_OUTPUT
+          echo "firstword=hello" >> $GITHUB_OUTPUT
