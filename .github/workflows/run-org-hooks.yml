@@ -41,10 +41,15 @@ jobs:
           path: 'reusable-workflow-poc'
           ref: 'main'
 
-      # Checks file directory
+      # Copies org hooks to another file
       - name: Check for orghooks
         run: |
           cat reusable-workflow-poc/.github/workflows/orghooks.yaml > orghooks.yaml
+
+      # Checks file directory
+      - name: Check directory
+        run: |
+          ls -la
 
       # Runs pre-commit hook
       - name: Run org-wide pre-commit hook
