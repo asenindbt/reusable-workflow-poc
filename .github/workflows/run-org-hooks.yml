@@ -32,9 +32,9 @@ jobs:
       # Checks file directory
       - name: Check for orghooks
         run: |
-          less reusable-workflow-poc/.github/workflows/orghooks.yaml
+          less asenindbt/reusable-workflow-poc/.github/workflows/orghooks.yaml@main
 
       # Runs pre-commit hook
       - name: Run org-wide pre-commit hook
         run: |
-          pre-commit run --config "./reusable-workflow-poc/.github/workflows/orghooks.yaml" --files
+          pre-commit run --config "asenindbt/reusable-workflow-poc/.github/workflows/orghooks.yaml@main" --files
