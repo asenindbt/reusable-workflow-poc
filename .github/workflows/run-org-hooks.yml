@@ -24,9 +24,9 @@ jobs:
       # Copies org hooks to another file
       - name: Check for orghooks
         run: |
-          cat reusable-workflow-poc/.github/workflows/orghooks.yaml
+          cat reusable-workflow-poc/.github/workflows/orghooks.yaml >> $GITHUB_OUTPUT
 
-      - name: Test output
-        id: step1
-        run: |
-          echo "firstword=hello" >> $GITHUB_OUTPUT
+#      - name: Test output
+#        id: step1
+#        run: |
+#          echo "firstword=hello" >> $GITHUB_OUTPUT
