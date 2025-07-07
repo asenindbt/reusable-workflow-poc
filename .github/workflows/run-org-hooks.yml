@@ -18,23 +18,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        with:
+          repository: 'asenindbt/reusable-workflow-poc'
+          path: 'reusable-workflow-poc'
+          ref: 'main'
 
       # Checks file directory
       - name: Check for orghooks
         run: |
-          less asenindbt/reusable-workflow-poc/.github/workflows/orghooks.yaml@main
+          cat reusable-workflow-poc/.github/workflows/orghooks.yaml
 
       # Runs pre-commit hook
       - name: Run org-wide pre-commit hook
         run: |
-          pre-commit run --config "asenindbt/reusable-workflow-poc/.github/workflows/orghooks.yaml@main" --files
+          pre-commit run --config "reusable-workflow-poc/.github/workflows/orghooks.yaml" --files
