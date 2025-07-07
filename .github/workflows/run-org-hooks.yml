@@ -5,7 +5,7 @@ on:
     outputs:
       firstword:
         description: "The first output string"
-        value: ${{ jobs.example_job.outputs.output1 }}
+        value: ${{ jobs.build.outputs.output1 }}
 
 jobs:
   build:
@@ -27,5 +27,6 @@ jobs:
           cat reusable-workflow-poc/.github/workflows/orghooks.yaml
 
       - name: Test output
+        id: step1
         run: |
           echo "firstword=hello" >> $GITHUB_OUTPUT
