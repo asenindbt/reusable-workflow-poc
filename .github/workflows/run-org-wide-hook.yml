@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: org-wide-pre-commit-hook
-          path: run-org-wide-hook.yml
+          path: reusable-workflow-poc/orghooks.yaml
           retention-days: 1
 
       # TODO not sure if this is needed
