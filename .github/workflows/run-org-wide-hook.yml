@@ -14,7 +14,7 @@ jobs:
         with:
           repository: 'asenindbt/reusable-workflow-poc'
           path: 'reusable-workflow-poc'
-          ref: 'main'
+          ref: 'main' # This can be a tagged version as well
 
       - name: Upload org-wide pre hook as an artefact
         uses: actions/upload-artifact@v4
