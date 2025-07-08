@@ -47,7 +47,7 @@ jobs:
       - name: Download org-wide pre-hook artefact
         uses: actions/download-artifact@v4
         with:
-          name: run-org-wide-hook.yml
+          name: org-wide-pre-commit-hook
 
 #      - name: Copy org wide pre-commit config file to target repo
 #        run: |
