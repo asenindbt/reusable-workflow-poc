@@ -23,19 +23,20 @@ jobs:
         run: |
           echo ${{ inputs.repo-name }}
 
-#      - name: Checkout current repo
-#        uses: actions/checkout@v4
-#
-#      - name: Checkout source repo
-#        uses: actions/checkout@v4
-#        with:
-#          repository: 'asenindbt/reusable-workflow-poc'
-#          path: 'reusable-workflow-poc'
-#          ref: 'main'
-#
-#      - name: Check file directory
-#        run: |
-#          ls -la reusable-workflow-poc
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Checkout sample repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repo-name }}
+          ref: 'main'
+          # path: 'reusable-workflow-poc'
+
+      # TODO: move pre-commit file to
+      - name: Check file directory
+        run: |
+          ls -la
 #
 #      - name: Copy pre-commit file to target repo
 #        run: |
