@@ -42,9 +42,9 @@ jobs:
           ref: 'main'
           # path: 'reusable-workflow-poc'
 
-      - name: Copy org wide pre-commit config file to target repo
-        run: |
-          cp reusable-workflow-poc/orghooks.yaml .
+#      - name: Copy org wide pre-commit config file to target repo
+#        run: |
+#          cp reusable-workflow-poc/orghooks.yaml .
 
       - name: Check file directory - no. 2
         run: |
