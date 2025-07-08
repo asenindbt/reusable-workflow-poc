@@ -25,11 +25,16 @@ jobs:
 
       - name: Checkout current repo
         uses: actions/checkout@v4
+        with:
+          repository: '${{ github.repository }}'
+          path: 'reusable-workflow-poc'
+          ref: 'main'
 
       - name: Check file directory - no. 1
         run: |
           ls -la
 
+      # TODO not sure if this is needed
       - name: Checkout sample repo
         uses: actions/checkout@v4
         with:
