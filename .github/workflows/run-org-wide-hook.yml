@@ -33,6 +33,7 @@ jobs:
       - name: Check file directory - no. 1
         run: |
           ls -la
+          ls -la reusable-workflow-poc
 
       # Upload the org-wide pre-hook as an artifact
       - name: Upload org-wide pre hook as an artefact
