@@ -34,13 +34,27 @@ jobs:
         run: |
           ls -la
 
+      # Upload the org-wide pre-hook as an artifact
+      - name: Upload org-wide pre hook as an artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: org-wide-pre-commit-hook
+          path: run-org-wide-hook.yml
+          retention-days: 1
+
       # TODO not sure if this is needed
       - name: Checkout sample repo
         uses: actions/checkout@v4
         with:
           repository: ${{ inputs.repo-name }}
-          ref: 'main'
+          ref: 'main' # TODO: change this to current branch?
           # path: 'reusable-workflow-poc'
+
+      # Download the org-wide pre-hook artefact
+      - name: Download org-wide pre-hook artefact
+        uses: actions/download-artifact@v4
+        with:
+          name: run-org-wide-hook.yml
 
 #      - name: Copy org wide pre-commit config file to target repo
 #        run: |
