@@ -26,7 +26,6 @@ jobs:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
-      # TODO: move pre-commit file to
       - name: Check file directory - no. 1
         run: |
           ls -la
@@ -38,16 +37,14 @@ jobs:
           ref: 'main'
           # path: 'reusable-workflow-poc'
 
-      # TODO: move pre-commit file to
+      - name: Copy org wide pre-commit config file to target repo
+        run: |
+          cp reusable-workflow-poc/orghooks.yaml .
+
       - name: Check file directory - no. 2
         run: |
           ls -la
 
-#
-#      - name: Copy pre-commit file to target repo
-#        run: |
-#          cp reusable-workflow-poc/orghooks.yaml .
-#
 #      - name: Check root directory
 #        run: |
 #          ls -la
