@@ -1,19 +1,13 @@
-# This is a basic workflow to help you get started with Actions
-
 name: calling-workflow
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   workflow_call:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   copy-pre-commit:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - name: Checkout reusable workflow repo
         uses: actions/checkout@v4
@@ -22,12 +16,6 @@ jobs:
           path: 'reusable-workflow-poc'
           ref: 'main'
 
-      - name: Check file directory - no. 1
-        run: |
-          ls -la
-          ls -la reusable-workflow-poc
-
-      # Upload the org-wide pre-hook as an artifact
       - name: Upload org-wide pre hook as an artefact
         uses: actions/upload-artifact@v4
         with:
@@ -35,23 +23,17 @@ jobs:
           path: reusable-workflow-poc/orghooks.yaml
           retention-days: 1
 
-      # TODO not sure if this is needed
       - name: Checkout sample repo
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository }}
-          ref: ${{ github.ref }} # TODO: change this to current branch?
-          # path: 'reusable-workflow-poc'
+          ref: ${{ github.ref }}
 
       # Download the org-wide pre-hook artefact
       - name: Download org-wide pre-hook artefact
         uses: actions/download-artifact@v4
         with:
           name: org-wide-pre-commit-hook
-
-      - name: Check file directory - no. 2
-        run: |
-          ls -la
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
