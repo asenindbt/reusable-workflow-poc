@@ -6,10 +6,6 @@ name: calling-workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   workflow_call:
-    inputs:
-      repo-name:
-        required: true
-        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,14 +15,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
-      - name: Print repo name
-        run: |
-          echo ${{ inputs.repo-name }}
-
-      - name: Checkout current repo
+      - name: Checkout reusable workflow repo
         uses: actions/checkout@v4
         with:
-          repository: '${{ github.repository }}'
+          repository: 'asenindbt/reusable-workflow-poc'
           path: 'reusable-workflow-poc'
           ref: 'main'
 
@@ -47,7 +39,7 @@ jobs:
       - name: Checkout sample repo
         uses: actions/checkout@v4
         with:
-          repository: ${{ inputs.repo-name }}
+          repository: ${{ github.repository }}
           ref: 'main' # TODO: change this to current branch?
           # path: 'reusable-workflow-poc'
 
