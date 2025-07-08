@@ -26,6 +26,11 @@ jobs:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
+      # TODO: move pre-commit file to
+      - name: Check file directory - no. 1
+        run: |
+          ls -la
+
       - name: Checkout sample repo
         uses: actions/checkout@v4
         with:
@@ -34,9 +39,10 @@ jobs:
           # path: 'reusable-workflow-poc'
 
       # TODO: move pre-commit file to
-      - name: Check file directory
+      - name: Check file directory - no. 2
         run: |
           ls -la
+
 #
 #      - name: Copy pre-commit file to target repo
 #        run: |
